@@ -30,7 +30,7 @@ function searchBooks(searchTerm){
     for (let index = 0; index < bookList.length; index++) {
         const title = bookList[index].title.toLowerCase()
         if (title.indexOf(searchTerm.toLowerCase()) >= 0){
-            filteredList.push(bookList[0])
+            filteredList.push(bookList[index])
         }
         
     }
@@ -42,5 +42,5 @@ function renderBookList(list){
     console.log(list)
 }
 
-handleKeyPress('e')
+handleKeyPress('')
 
