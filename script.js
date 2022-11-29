@@ -43,7 +43,7 @@ function searchBooks(searchTerm){
     renderBookList(filteredList)
 }
 
-
+//renderBookList ska uppdateras för att inte skapa en ny lista varje input
 function renderBookList(bookList){
     let html = ` 
     <ul class="book-list rounded-md border-2 border-blue-400 bg-white w-full mx-auto">`;
@@ -65,8 +65,10 @@ function renderBookList(bookList){
     if(existingElement){
         root.removeChild(existingElement)
     }
-
-    root.insertAdjacentHTML("beforeend", html)
+    if (bookList.length > 0) { 
+        root.insertAdjacentHTML("beforeend", BookList(bookList))
+    }
+    
     
 }
 
