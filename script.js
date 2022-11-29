@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 const bookList =[
     {
         id: 1,
@@ -19,29 +17,27 @@ const bookList =[
 const searchField = document.getElementById('searchField')
 
 
-searchField.addEventListener("keyup", handleKeyPress);
+//searchField.addEventListener("keyup", (e) => searchBooks(e.target.value));
+searchField.addEventListener("keyup", (e) =>
+    renderBookList( 
+    bookList.filter(({title, author}) => {
+        const searchTerm = e.target.value.toLowerCase();
+        return title.toLowerCase().indexOf(searchTerm) >= 0 || author.toLowerCase().indexOf(searchTerm) >= 0
+     }
+    )
+  )
+);
 
-
-
-function handleKeyPress(e) {
-/*ska ta emot och läas av värdet i inputfältet
-skicka värdet till function searchbooks
-searchbooks returnerar en filtrerad lista.
-filtrerade listan skickas till en function som renderar listan*/
-    searchBooks(e.target.value)
-}
-
+/*
 function searchBooks(searchTerm){
-    let filteredList = [];
-    for (let index = 0; index < bookList.length; index++) {
-        const title = bookList[index].title.toLowerCase()
-        if (title.indexOf(searchTerm.toLowerCase()) >= 0){
-            filteredList.push(bookList[index])
-        }
-        
-    }
-    renderBookList(filteredList)
+    renderBookList( bookList.filter(({title, author}) =>
+    
+    (title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) ||
+    (author.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) 
+        )
+    );
 }
+*/
 
 //renderBookList ska uppdateras för att inte skapa en ny lista varje input
 function renderBookList(bookList){
