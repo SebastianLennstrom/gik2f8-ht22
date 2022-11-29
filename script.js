@@ -19,7 +19,8 @@ const bookList =[
 const searchField = document.getElementById('searchField')
 console.log(searchField)
 
-searchField.addEventListener("keyup", handleKeyPress);
+searchField.addEventListener("keyup", (e) => console.log(e.target.value));
+
 
 
 function handleKeyPress(e) {
@@ -46,6 +47,7 @@ function searchBooks(searchTerm){
 function renderBookList(list){
     console.log(list)
 }
+
 
 
 
