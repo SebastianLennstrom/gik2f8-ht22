@@ -55,7 +55,6 @@ function renderBookList(bookList){
     html += `</ul>`;
 
     const existingElement = document.querySelector(".book-list");
-    console.log("existingElement")
 
     const root = document.getElementById("root");
     if(existingElement){
@@ -65,8 +64,9 @@ function renderBookList(bookList){
         root.insertAdjacentHTML("beforeend", BookList(bookList))
     }
     
-    
 }
+
+getAll().then((bookList) => console.log(bookList));
 
 
 
