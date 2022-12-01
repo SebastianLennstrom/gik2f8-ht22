@@ -8,7 +8,7 @@ const url = "https://gik2f8-labs.herokuapp.com/books";
 }*/
 
 async function getAll(){
-    const result = await fetch(url).then((result) => result.json);
-    const jsonData = await result.json();
-    return jsonData;
+    const result = await fetch(url)
+    .then((result) => result.json())
+    return result;
 }
